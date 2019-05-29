@@ -1,0 +1,60 @@
+import random
+import time
+
+guessesTaken = 0
+
+print("\n Enter the code in 15 tries to avoid lockout \n")
+print('\nconnecting....')
+time.sleep(1)
+print('....')
+time.sleep(1)
+print('....')
+time.sleep(1)
+print('....')
+time.sleep(1)
+print("Connected\n")
+print("---------------------")
+print("  COMPUTER - LOGIN   ")
+print("---------------------")
+print("\n Enter 3 digit access code..")
+
+number = random.randint(000, 999)
+while guessesTaken < 15:
+	print
+	guess = input("Code:>>> ")
+            
+	guess = int(guess)
+	
+	guessesTaken = guessesTaken + 1
+	
+	if guess < number:
+		print('\nINCORRECT  -code to low')
+		
+	if guess > number:
+		print('\nINCORRECT  -code to high')
+		
+	if guess == number:
+		break
+
+
+if guess == number:
+	guessesTaken = int(guessesTaken)
+	print('\nverifying ....')
+	time.sleep(1)
+	print('....')
+	time.sleep(1)
+	print('....')
+	time.sleep(1)
+	print('\nCORRECT - CODE')
+	print("YOU WON THE GAME in ", guessesTaken, " tries")
+	
+	
+if guess != number:
+	number = str(number)
+	print('\n....')
+	time.sleep(1)
+	print('\n....')
+	time.sleep(1)
+	print("GAME - OVER  -the code was ", number)
+	print()
+	

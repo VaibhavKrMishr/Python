@@ -1,0 +1,19 @@
+#file calendar.py
+
+import time         #imports time module
+import calendar     #imports calendar module
+
+print "This programe shows the calendar you want"
+x = input("Year:>(in format YYYY)")
+y = input("Month:>(in format M)")
+print "importing calendar..."
+print               #leaves a blank line
+time.sleep(2)
+cal = calendar.month(x, y)  #calendar.month prints calendar and x, y are assinged to year and month entered by user
+print cal
+
+while True:
+    pass
+
+
+

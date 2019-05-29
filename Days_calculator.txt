@@ -1,0 +1,23 @@
+from datetime import *
+import time
+
+#date_calculator.py
+
+print "This is an Date calculator"
+print "it will calculate number of days from given date"
+time.sleep(1)
+y = input("Enter the year in YYYY- ")
+time.sleep(1)
+m = input("Enter the month in MM- ")
+time.sleep(1)
+d = input("Enter the date in DD- ")
+time.sleep(1)
+bir = date(y, m, d)
+now = date.today()
+age = now - bir
+print "It is currently", age.days, "days from given date"
+
+while True:
+    pass
+
+

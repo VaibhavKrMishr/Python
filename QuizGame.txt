@@ -1,0 +1,108 @@
+import random
+import time
+from Tkinter import *
+
+root = Tk()
+root.title("Score board")
+F1 = Frame(root, relief = RAISED, borderwidth = 5, bg = "white")
+F1.pack()
+
+L1 = Label(F1, text = "Quiz Game", bg = "white")
+L1.pack()
+
+#file Quiz_game.py
+
+a = random.randint(1, 100)
+b = random.randint(1, 100)
+c = random.randint(1, 100)
+d = random.randint(1, 100)
+
+print "Welcome to our Quiz Game"
+print
+time.sleep(1)
+print "Your first question is..."
+time.sleep(1)
+print "Q1. Which is greatest of the following"
+print
+print "(a)", a, " (b)", b, " (c)", c, " (d)", d
+
+m = max(a, b, c, d)
+
+e = input("Ans:>>>")
+
+if e == m:
+    print "Correct answer"
+    time.sleep(1)
+    print
+    print "You won"
+    L2 = Label(F1, text = "Q1. ans = True" , fg = "dark green", bg = "white")
+    L2.pack()
+
+if e != m:
+    print "Incorrect answer"
+    time.sleep(1)
+    print
+    print "You lose. The correct answer was", m
+    L2 = Label(F1, text = "Q1. ans = False", fg = "red", bg = "white")
+    L2.pack()
+
+time.sleep(1)
+a = random.randint(1, 100)
+b = random.randint(1, 100)
+c = random.randint(1, 100)
+d = random.randint(1, 100)
+print "Q2. Which is least of the following"
+print
+print "(a)", a, " (b)", b, " (c)", c, " (d)", d
+
+m = min(a, b, c, d)
+
+e = input("Ans:>>>")
+
+if e == m:
+    print "Correct answer"
+    time.sleep(1)
+    print
+    print "You won"
+    L3 = Label(F1, text = "Q2. ans = True", fg = "dark green", bg = "white")
+    L3.pack()
+
+if e != m:
+    print "Incorrect answer"
+    time.sleep(1)
+    print
+    print "You lose. The correct answer was", m
+    L3 = Label(F1, text = "Q2. ans = False", fg = "red", bg = "white")
+    L3.pack()
+
+time.sleep(1)
+a = random.randint(1, 100)
+b = random.randint(1, 100)
+
+print "Q3. ", a, "+", b, "="
+print
+
+m = a + b
+
+e = input("Ans:>>>")
+
+if e == m:
+    print "Correct answer"
+    time.sleep(1)
+    print
+    print "You won"
+    L4 = Label(F1, text = "Q3. ans = True", fg = "dark green", bg = "white")
+    L4.pack()
+
+if e != m:
+    print "Incorrect answer"
+    time.sleep(1)
+    print
+    print "You lose. The correct answer was", m
+    L4 = Label(F1, text = "Q3. ans = False", fg = "red", bg = "white")
+    L4.pack()
+
+root.mainloop()
+
+
+
