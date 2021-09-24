@@ -17,12 +17,15 @@ int bellTimingsMinutes[3] = {15, 45, 55};
 int bellTimingsLen = 11;
 
 int bellTypes[bellTimingsLen] = {
-    // 5 = long bell
-    // 3 = (bell on for 1s then bell off 0.5s) * 3
-    5, 3, 3, 3, 3, 5, 5, 3, 3, 3, 5
+    // 0 = long bell
+    0, 1, 2, 3, 4, 0, 0, 6, 7, 8, 0
     // depart for assembly , 1, 2, 3, 4 bells
     // lunch begin bell, lunch end bell (and the 5th period bell)
     // 6, 7, 8 bells, then finally, छुट्टी की घंटी !!!
+};
+
+int bellLongDurations[bellTimingsLen] = {
+    3000, 1000, 1000, 1000, 1000, 4000, 4000, 1000, 1000, 1000, 5000
 };
 
 /*typedef struct hourMinute {
@@ -134,38 +137,45 @@ int indexOfArray(array ar, array elem) {
 void ringBell(int h, int m) {
     int index = indexOfArray(bellTimings, {h, m});
     int typeOfBell = bellTypes[index];
+    int duration = bellLongDurations[index];
+
+    if (typeOfBell == 0) {
+        ringBell_long(duration);
+    } else {
+        ringBell_ntimes(typeOfBell, duration);
+    }
     
-    switch (typeOfBell) {
+    /*switch (typeOfBell) {
         case 3:
-            ringBell_3times();
+            ringBell_ntimes();
             break;
         case 5:
             ringBell_long();
             break;
         default:
             break;
-    }
+    }*/
 }
 
-void ringBell_3times() {
-    //repeat(3)
-        // Start Bell of 1s
-        // Stop bell for 0.5s
+void ringBell_ntimes(int n = 3, int duration = 1000, int pause = 500) {
+    //repeat(n)
+        // Start Bell for duration
+        // Stop bell for pause
 
-	for (int i = 0; i < 3; ++i)
+	for (int i = 0; i < n; ++i)
 	{
 		tone(buzzer, 1000); // Send a 1000 Hz (1KHz) signal to the buzzer
-		delay(1000); // Wait 1 sec
+		delay(duration); // Wait duration sec
 		noTone(buzzer); // Send no tone to buzzer
-		delay(500);	// Wait 0.5 sec
+		delay(pause);	// Wait pause sec
 	}
 }
 
-void ringBell_long() {
-    // Start Bell for 5s
+void ringBell_long(int duration = 5000) {
+    // Start Bell for duration
     // Stop bell
 
     tone(buzzer, 1000);
-    delay(5000);
+    delay(duration);
     noTone(buzzer);
 }
