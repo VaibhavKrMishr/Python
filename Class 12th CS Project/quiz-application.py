@@ -1,6 +1,3 @@
-
-# AUTHOR: Harsh Narayan Jha (harshnj@icloud.com)
-
 try:
 	import requests
 except ImportError:
@@ -154,4 +151,3 @@ for i, r in enumerate(data['results'], 1):
 print(f"You got {points} points for {amount} questions!")
 print(f"You Universal score is {round(points/amount * 100, 2)}")
 print()
-#print("Thanks for playing! Made by Harsh Narayan Jha")
