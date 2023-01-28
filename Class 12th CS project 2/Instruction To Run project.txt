@@ -1,0 +1,7 @@
+1) copy comp.sql in D Drive or any drive
+2)Open MySQL
+3) Type 
+	source  D:\comp.sql
+
+Note: replace D: with Drive name if file copied in any other drive
+4) Now run the python file
